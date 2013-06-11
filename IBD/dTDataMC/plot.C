@@ -1,6 +1,6 @@
 void plot(const char* type = "eps")
 {
-  gROOT->ProcessLine(".x ../style.C");
+  gROOT->ProcessLine(".x ../../style.C");
 
   TFile f1("mc.root");
   TH1F *mc = (TH1F*)f1.Get("time_onGd");
