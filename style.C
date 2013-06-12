@@ -9,7 +9,7 @@
   gStyle->SetTitleOffset(1.25, "y");
   gStyle->SetHistLineWidth(2);
   gStyle->SetLegendBorderSize(0);
-  gStyle->SetLegendFillColor(0);
+  gStyle->SetLegendFillColor(kWhite);
   gStyle->SetPalette(1);
   gROOT->UseCurrentStyle();
   gROOT->ForceStyle();
