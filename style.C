@@ -8,6 +8,7 @@
   gStyle->SetTitleOffset(1.1, "x");
   gStyle->SetTitleOffset(1.25, "y");
   gStyle->SetHistLineWidth(2);
+  gStyle->SetHistLineColor(kBlack);
   gStyle->SetLegendBorderSize(0);
   gStyle->SetLegendFillColor(kWhite);
   gStyle->SetPalette(1);
