@@ -46,13 +46,13 @@ def run(fig_dir, plot='all'):
 
 if __name__ == '__main__':
     try:
-        fig_dir = sys.argv[1]
-    except IndexError:
-        fig_dir = '.'
-    try:
-        plot = sys.argv[2]
+        plot = sys.argv[1]
     except IndexError:
         plot = 'all'
+    try:
+        fig_dir = sys.argv[2]
+    except IndexError:
+        fig_dir = '.'
 
     run(os.path.abspath(fig_dir+'/figures'), plot=plot)
     # run(os.path.abspath(fig_dir+'/figures'), draw=False)
