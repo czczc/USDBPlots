@@ -176,7 +176,7 @@ void plot(const char* type = "eps") {
   f3->SetParameter(2, 0.016);
   f3->SetLineColor(1);
 
-  TCanvas *c1 = new TCanvas("c1", "c1", 800, 600);
+  TCanvas c1("c1", "c1", 800, 600);
   gr->Draw("ap");
   gr->GetYaxis()->SetRangeUser(0,0.15);
   gr->SetTitle("Energy Resolution");
@@ -195,6 +195,13 @@ void plot(const char* type = "eps") {
 
   // c1->Print("gamma_res2.png");
   TString name("Resolution");
-  c1->SaveAs(name + "." + type);
+  c1.SaveAs(name + ".eps");
+  c1.SaveAs(name + ".pdf");
+  c1.SaveAs(name + ".png");
+
+  TString extra(type);
+  if (! (extra == "eps" || extra == "pdf" || extra == "png")) {
+    c1.SaveAs(name + "." + type);
+  }
 }
 

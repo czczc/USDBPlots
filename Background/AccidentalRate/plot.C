@@ -71,5 +71,12 @@ void plot(const char* type = "eps")
   leg2.Draw();
 
   TString name("AccidentalRate");
-  c1.SaveAs(name + "." + type);
+  c1.SaveAs(name + ".eps");
+  c1.SaveAs(name + ".pdf");
+  c1.SaveAs(name + ".png");
+
+  TString extra(type);
+  if (! (extra == "eps" || extra == "pdf" || extra == "png")) {
+    c1.SaveAs(name + "." + type);
+  }
 }

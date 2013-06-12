@@ -1,3 +1,7 @@
 *.pdf
 *.eps
+*.png
+*.gif
+.DS_Store
+figures/
 sync.sh

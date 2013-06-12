@@ -16,5 +16,13 @@ void plot(const char* type = "eps")
   gPad->SetLogy();
 
   TString name("AccidentalSpectra");
-  c1.SaveAs(name + "." + type);
+  // print 3 figures by default
+  c1.SaveAs(name + ".eps");
+  c1.SaveAs(name + ".pdf");
+  c1.SaveAs(name + ".png");
+
+  TString extra(type);
+  if (! (extra == "eps" || extra == "pdf" || extra == "png")) {
+    c1.SaveAs(name + "." + type);
+  }
 }
