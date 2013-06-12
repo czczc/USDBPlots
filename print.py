@@ -5,7 +5,7 @@ print.py
 
 Walk over directory to print figures in all format
 """
-import os, sys, json
+import os, sys, json, pprint
 
 def my_walk():
     for root, dirs, files in os.walk('.'):
@@ -42,6 +42,7 @@ def run(fig_dir, draw=True):
     f = open(fig_dir + '/index.json', 'w')
     f.write(json.dumps(index))
     f.close()
+    pprint.pprint(index)
 
 if __name__ == '__main__':
     try:
