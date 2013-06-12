@@ -25,10 +25,10 @@ def copy_fig(fig_dir, root):
     os.system('cp -f *.pdf ' + to_dir)
     os.system('cp -f *.png ' + to_dir)
 
-def run(fig_dir, draw=True):
+def run(fig_dir, plot='all'):
     index = {}
     for root, dirs, files in my_walk():
-        if draw:
+        if not plot == 'none' and (plot == 'all' or (root+'/').find(plot) > 0):
             current_dir = os.getcwd()
             os.chdir(root)
             cmd = 'root -b -q plot.C'
@@ -49,6 +49,10 @@ if __name__ == '__main__':
         fig_dir = sys.argv[1]
     except IndexError:
         fig_dir = '.'
+    try:
+        plot = sys.argv[2]
+    except IndexError:
+        plot = 'all'
 
-    # run(os.path.abspath(fig_dir+'/figures'), draw=True)
-    run(os.path.abspath(fig_dir+'/figures'), draw=False)
+    run(os.path.abspath(fig_dir+'/figures'), plot=plot)
+    # run(os.path.abspath(fig_dir+'/figures'), draw=False)
