@@ -1,3 +1,5 @@
+// From Xin Qian & Jiajie Ling
+
 double div_err(double a, double a_err, double b, double b_err) {
 
   double a_rel_err = a_err / a;
@@ -177,7 +179,7 @@ void plot(const char* type = "eps") {
   TCanvas *c1 = new TCanvas("c1", "c1", 800, 600);
   gr->Draw("ap");
   gr->GetYaxis()->SetRangeUser(0,0.15);
-  gr->SetTitle("");
+  gr->SetTitle("Energy Resolution");
   gr->GetXaxis()->SetTitle("E_{rec} [MeV]");
   gr->GetYaxis()->SetTitle("#sigma_{E} / E");
   gr->Fit("f1");

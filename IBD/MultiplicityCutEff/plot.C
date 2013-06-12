@@ -4,22 +4,22 @@ void plot(const char* type = "eps")
 {
   gROOT->ProcessLine(".x ../../style.C");
 
-  TFile f1("muon_eff.root");
-  TGraphErrors *g1 = (TGraphErrors*)f1.Get("MuonEff_EH1-AD1");
-  TGraphErrors *g2 = (TGraphErrors*)f1.Get("MuonEff_EH1-AD2");
-  TGraphErrors *g3 = (TGraphErrors*)f1.Get("MuonEff_EH2-AD1");
-  TGraphErrors *g4 = (TGraphErrors*)f1.Get("MuonEff_EH3-AD1");
-  TGraphErrors *g5 = (TGraphErrors*)f1.Get("MuonEff_EH3-AD2");
-  TGraphErrors *g6 = (TGraphErrors*)f1.Get("MuonEff_EH3-AD3");
+  TFile f1("mult_eff.root");
+  TGraphErrors *g1 = (TGraphErrors*)f1.Get("MultEff_EH1-AD1");
+  TGraphErrors *g2 = (TGraphErrors*)f1.Get("MultEff_EH1-AD2");
+  TGraphErrors *g3 = (TGraphErrors*)f1.Get("MultEff_EH2-AD1");
+  TGraphErrors *g4 = (TGraphErrors*)f1.Get("MultEff_EH3-AD1");
+  TGraphErrors *g5 = (TGraphErrors*)f1.Get("MultEff_EH3-AD2");
+  TGraphErrors *g6 = (TGraphErrors*)f1.Get("MultEff_EH3-AD3");
 
   int nPoints = g1->GetN();
   TCanvas c1("c1", "c1", 1200, 600);
-  TH2F h("h", "", 10000, g1->GetX()[0]-3*86400, g1->GetX()[nPoints-1]+3*86400, 100, 0.78, 1.02);
+  TH2F h("h", "", 10000, g1->GetX()[0]-3*86400, g1->GetX()[nPoints-1]+3*86400, 100, 0.97, 0.979);
   h.GetXaxis()->SetTimeDisplay(1);
   h.GetXaxis()->SetTimeFormat("%b %d");
   h.GetXaxis()->SetNdivisions(505);
   h.GetXaxis()->SetTimeOffset(8*60*60);
-  h.GetYaxis()->SetTitle("Muon Cut Effciency");
+  h.GetYaxis()->SetTitle("Multiplicity Cut Effciency");
   h.Draw();
 
   g1->SetMarkerStyle(24);
@@ -69,6 +69,6 @@ void plot(const char* type = "eps")
   leg1.Draw();
   leg2.Draw();
 
-  TString name("MuonCutEff");
+  TString name("MultiplicityCutEff");
   c1.SaveAs(name + "." + type);
 }

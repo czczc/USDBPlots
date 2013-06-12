@@ -1,3 +1,5 @@
+// From Chao Zhang
+
 void plot(const char* type = "eps")
 {
   gROOT->ProcessLine(".x ../../style.C");
