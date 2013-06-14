@@ -44,7 +44,7 @@ void plot(const char* type = "eps")
   rate_cpc->SetMarkerColor(4);
 
   TH2D *h1 = new TH2D("h1", "Projected Daya Bay Sensitivity of sin^{2}2#theta_{13} (68% C.L.)", 100, 0, 1600, 100, 0, 0.02);
-  h1->SetXTitle("Time(Days)");
+  h1->SetXTitle("Time (Days)");
   h1->SetYTitle("#delta(sin^{2}2#theta_{13})");
   h1->SetTitleOffset(1.5, "y");
 
@@ -86,27 +86,4 @@ void plot(const char* type = "eps")
     c1.SaveAs(name + "." + type);
   }
 
-
-  // TH2D *h2 = new TH2D("h2", "Projected Daya Bay Sensitivity of #Deltam^{2}_{ee} (68% C.L.)", 100, 0, 1600, 100, 0, 0.25);
-  // h2->SetXTitle("Time(Days)");
-  // h2->SetYTitle("#delta(#Delta m^{2}_{ee}) (10^{-3}eV^{2})");
-
-  // TCanvas *c2 = new TCanvas("c2", "c2", 800, 600);
-  // TGraph* dm32_gr = new TGraph(15, time_8AD, dm32_8AD);
-  // h2->Draw();
-  // dm32_gr->Draw("c,same");
-  // dm32_gr->SetLineWidth(2);
-  // dm32_gr->SetLineColor(4);
-
-  // TLegend *leg2 = new TLegend(0.6, 0.6, 0.8, 0.8);
-  // leg2->SetBorderSize(0);
-  // leg2->AddEntry(dm32_gr, "Rate+Shape", "lp");
-  // leg2->Draw();
-
-  // TLatex *lax = new TLatex();
-  // lax->SetTextSize(0.035);
-  // lax->DrawLatex(1000, 0.22, "Assuming sin^{2}2#theta_{13} = 0.1");
-
-  // c2->Print("dmee.png");
-  // c2->Print("dmee.eps");
 }
