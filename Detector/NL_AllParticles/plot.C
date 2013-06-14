@@ -42,7 +42,7 @@ void plot(const char* type = "eps")
   // leg.SetBorderSize(1);
   leg.Draw();
 
-  TString name("ScintillatorNL");
+  TString name("NL_AllParticles");
   c1.SaveAs(name + ".eps");
   c1.SaveAs(name + ".pdf");
   c1.SaveAs(name + ".png");

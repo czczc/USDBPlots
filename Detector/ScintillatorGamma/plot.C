@@ -32,7 +32,8 @@ void plot(const char* type = "eps") {
     Etrue[i] = m[i][0];
     Evis[i] = m[i][2] / m[i][4];
     ratio[i] = Evis[i]/Etrue[i];
-    err[i] = m[i][3] / m[i][4] / Etrue[i];
+    if (i==9) { Etrue[i] = 4.9453*0.681+(3.684+1.261)/2*0.318; }
+    err[i] = ratio[i] * m[i][3]/m[i][2];
     xerr[i] = 0;
   }
 
@@ -46,7 +47,7 @@ void plot(const char* type = "eps") {
   }
   infile.close();
   TGraph *g_photon = new TGraph(19, x, y);
-  g_photon->Draw("ac");
+  g_photon->Draw("al");
   g_photon->GetXaxis()->SetTitle("E_{true} [MeV]");
   g_photon->GetYaxis()->SetTitle("E_{vis} / E_{true}");
   g_photon->SetTitle("Scintillator Nonlinearity for Gamma");
