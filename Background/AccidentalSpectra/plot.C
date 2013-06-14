@@ -6,12 +6,51 @@ void plot(const char* type = "eps")
 
   TFile f1("merge_single.root");
   TH1F *hp1 = (TH1F*)f1.Get("hp1");
-  hp1->Scale(1./hp1->Integral());
+  TH1F *hp2 = (TH1F*)f1.Get("hp2");
+  TH1F *hp3 = (TH1F*)f1.Get("hp3");
+  TH1F *hp4 = (TH1F*)f1.Get("hp4");
+  TH1F *hp5 = (TH1F*)f1.Get("hp5");
+  TH1F *hp6 = (TH1F*)f1.Get("hp6");
+  // hp1->Scale(1./hp1->Integral());
 
   TCanvas c1("c1", "c1", 800, 600);
   hp1->Draw("");
-  hp1->GetXaxis()->SetTitle("E [MeV]");
+  hp1->GetXaxis()->SetTitle("Reconstructed Energy [MeV]");
+  hp1->GetXaxis()->SetRangeUser(0.71, 12);
   hp1->SetTitle("Accidental Spectrum");
+
+  hp2->SetLineColor(kBlue);
+  hp2->Draw("same");
+
+  hp3->SetLineColor(kRed);
+  hp3->Draw("same");
+
+  hp4->SetLineColor(kCyan+1);
+  hp4->Draw("same");
+
+  hp5->SetLineColor(kMagenta);
+  hp5->Draw("same");
+
+  hp6->SetLineColor(kGreen+2);
+  hp6->Draw("same");
+
+
+  TLegend leg1(0.51,0.89,0.70,0.89-3*0.06);
+  TLegend leg2(0.70,0.89,0.89,0.89-3*0.06);
+  leg1.SetFillColor(kWhite);
+  leg1.SetBorderSize(1);
+  leg2.SetFillColor(kWhite);
+  leg2.SetBorderSize(1);
+
+  leg1.AddEntry(hp1, " EH1-AD1", "l");
+  leg1.AddEntry(hp2, " EH1-AD2", "l");
+  leg1.AddEntry(hp3, " EH2-AD1", "l");
+  leg2.AddEntry(hp4, " EH3-AD1", "l");
+  leg2.AddEntry(hp5, " EH3-AD2", "l");
+  leg2.AddEntry(hp6, " EH3-AD3", "l");
+
+  leg1.Draw();
+  leg2.Draw();
 
   gPad->SetLogy();
 
