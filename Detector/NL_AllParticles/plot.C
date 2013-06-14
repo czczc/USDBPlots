@@ -28,8 +28,8 @@ void plot(const char* type = "eps")
   g_electron->GetYaxis()->SetRangeUser(0.,1.2);
   g_electron->GetXaxis()->SetRangeUser(0.,10);
   g_electron->GetXaxis()->SetTitle("True Energy [MeV]");
-  g_electron->GetYaxis()->SetTitle("Visible Energy / True Energy");
-  g_electron->SetTitle("Scintillator Nonlinearity");
+  g_electron->GetYaxis()->SetTitle("Reconstructed Energy / True Energy");
+  g_electron->SetTitle("Nonlinearity of All Particles");
 
 
   TLegend leg(0.70,0.75-0.25,0.80,0.75);
