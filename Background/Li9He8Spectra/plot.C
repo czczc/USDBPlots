@@ -29,7 +29,7 @@ void plot(const char* type = "eps")
     /theory->GetBinWidth(1)
   );
   theory->SetLineColor(kRed);
-  theory->SetLineStyle(2);
+  // theory->SetLineStyle(2);
   theory->Draw("same");
   // gPad->SetLogy();
 
