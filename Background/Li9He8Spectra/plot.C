@@ -8,7 +8,10 @@ void plot(const char* type = "eps")
   TH1F *eh1 = (TH1F*)f1.Get("data_eh1");
   TH1F *eh2 = (TH1F*)f1.Get("data_eh2");
   TH1F *eh3 = (TH1F*)f1.Get("data_eh3");
-  TH1F *theory = (TH1F*)f1.Get("theory_org");
+  TFile f2("Li9-1.root");
+  TH1F *theory = (TH1F*)f2.Get("h1");
+  theory->Rebin(10);
+  // theory->Smooth();
 
   eh1->Add(eh2);
   eh1->Add(eh3);
@@ -24,9 +27,9 @@ void plot(const char* type = "eps")
     /eh1->GetBinWidth(1)
     /theory->Integral(theory->FindBin(1), theory->FindBin(12))
     /theory->GetBinWidth(1)
-    *1.2
   );
   theory->SetLineColor(kRed);
+  theory->SetLineStyle(2);
   theory->Draw("same");
   // gPad->SetLogy();
 
